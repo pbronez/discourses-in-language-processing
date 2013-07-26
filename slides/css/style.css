@@ -13,7 +13,12 @@ footer p {
     color: #777;
 }
 
-div.page-header, div.outline {
+div.outline {
     text-align: center;
     margin-top: 20px;
+}
+
+div.outline li {
+    font-size: 140%;
+    margin-bottom: 4px;
 }
