@@ -124,11 +124,11 @@
                         ## N-Grams ##
                         Generate Bigrams with NLTK:
 
-                            >>> import nltk
-                            >>> raw_text  = nltk.corpus.gutenberg.raw('melville-moby_dick.txt')
-                            >>> tokens    = nltk.word_tokenize(raw_text)
-                            >>> bigrams   = nltk.bigrams(tokens)
-                            >>> histogram = nltk.FreqDist(bigrams)
+                            import nltk
+                            raw_text  = nltk.corpus.gutenberg.raw('melville-moby_dick.txt')
+                            tokens    = nltk.word_tokenize(raw_text)
+                            bigrams   = nltk.bigrams(tokens)
+                            histogram = nltk.FreqDist(bigrams)
 
                     </script>
                 </section>
@@ -146,14 +146,21 @@
             <section data-markdown>
                 <script type="text/template">
                     ## Sentence Generation ##
-                    Extend your project to include sentence generation
+                    Extend your project to include random sentence generation
+
+                        import nltk, random
+                        raw_text  = nltk.corpus.gutenberg.raw('melville-moby_dick.txt')
+                        tokens    = nltk.word_tokenize(raw_text)
+                        bigrams   = nltk.bigrams(tokens)
 
                         def generate_text(cfdist, start, num=15):
                             for i in xrange(num):
-                                print start,
-                                start = cfdist[start].max()
+                            print start,
+                            start = cfdist[start].max()
 
-                        generate_text(nltk.ConditionalFreqDist(bigrams))
+                        condBigrams = nltk.ConditionalFreqDist(bigrams)
+                        startChoice = random.choice(condBigrams.keys())
+                        generate_text(condBigrams, startChoice)
 
                 </script>
             </section>
