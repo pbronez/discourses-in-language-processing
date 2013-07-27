@@ -149,7 +149,7 @@
                     ## Corpus Access Scripts ##
                     Create a Python script to access your Corpora
 
-                        from nltk import Text
+                        from nltk.text import Text
                         from nltk.corpus import PlaintextCorpusReader
 
                         CORPUS_ROOT = "/home/student/Corpora/books/"
@@ -157,10 +157,10 @@
                         class MyCorpus(PlaintextCorpusReader):
 
                             def __init__(self):
-                                super(MyCorpus).__init__(CORPUS_ROOT, '.*')
+                                super(MyCorpus, self).__init__(CORPUS_ROOT, '.*')
 
                             def text(self):
-                                return text(self.words())
+                                return Text(self.words())
 
                     Feel free to extend or awesomeify!
 
